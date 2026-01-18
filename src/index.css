@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   Antigravity Desktop - Global Styles
+   ======================================== */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Dark Theme (default) */
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #08090c;
+    color: #f1f5f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Disable text selection for UI elements */
+  button,
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@layer components {
+
+  /* Glassmorphism Cards */
+  .glass-card {
+    background: rgba(15, 17, 21, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-hover {
+    @apply glass-card;
+    transition: all 0.2s ease;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(22, 25, 32, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Buttons */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-primary;
+  }
+
+  .btn-primary {
+    @apply btn;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #9d7af8 0%, #8b5cf6 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  }
+
+  .btn-secondary {
+    @apply btn;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f3f4f6;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-success {
+    @apply btn;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+  }
+
+  .btn-danger {
+    @apply btn;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+  }
+
+  /* Toggle Switch */
+  .toggle {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full cursor-pointer transition-colors duration-200;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .toggle.active {
+    background: #22c55e;
+  }
+
+  .toggle-dot {
+    @apply inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-200;
+    margin-left: 4px;
+  }
+
+  .toggle.active .toggle-dot {
+    transform: translateX(20px);
+  }
+
+  /* Input Fields */
+  .input {
+    @apply w-full px-4 py-2 rounded-lg transition-all duration-200;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f3f4f6;
+  }
+
+  .input:focus {
+    @apply outline-none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+  }
+
+  .input::placeholder {
+    color: #6b7280;
+  }
+
+  /* Select dropdown options - dark theme */
+  select.input,
+  select {
+    background-color: #0f1115;
+    color: #f1f5f9;
+  }
+
+  select.input option,
+  select option {
+    background-color: #0f1115;
+    color: #f1f5f9;
+    padding: 8px 12px;
+  }
+
+  select.input option:hover,
+  select option:hover,
+  select.input option:checked,
+  select option:checked {
+    background-color: #8b5cf6;
+    color: white;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge;
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+  }
+
+  .badge-error {
+    @apply badge;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+  }
+
+  .badge-warning {
+    @apply badge;
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+  }
+
+  .badge-info {
+    @apply badge;
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-300;
+  }
+}
+
+@layer utilities {
+
+  /* Text utilities */
+  .text-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Prevent dragging for Tauri */
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  /* Button click effect */
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-danger:active {
+    transform: scale(0.97);
+  }
+
+  /* Glow effect for active elements */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+
+  .glow-error {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+
+  /* Bounce animation for notifications */
+  .animate-bounce-in {
+    animation: bounceIn 0.3s ease-out;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Shake animation for errors */
+  .animate-shake {
+    animation: shake 0.4s ease-in-out;
+  }
+
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    25% {
+      transform: translateX(-5px);
+    }
+
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Fast tooltip - appears instantly on hover */
+  .tooltip-fast {
+    @apply relative;
+  }
+
+  .tooltip-fast::after {
+    content: attr(data-tooltip);
+    @apply absolute z-50 px-3 py-1.5 text-xs font-medium text-white rounded-md pointer-events-none;
+    @apply opacity-0 invisible transition-all duration-150;
+    background: rgba(0, 0, 0, 0.9);
+    top: 100%;
+    right: 0;
+    transform: translateY(4px);
+    margin-top: 4px;
+    width: max-content;
+    max-width: 280px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .tooltip-fast:hover::after {
+    @apply opacity-100 visible;
+  }
+
+  /* Tooltip positions */
+  .tooltip-fast.tooltip-top::after {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .tooltip-fast.tooltip-left::after {
+    top: 50%;
+    left: auto;
+    right: 100%;
+    transform: translateY(-50%) translateX(0);
+    margin-top: 0;
+    margin-right: 4px;
+  }
+
+  .tooltip-fast.tooltip-right::after {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%) translateX(0);
+    margin-top: 0;
+    margin-left: 4px;
+  }
+}
