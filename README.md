@@ -82,3 +82,12 @@ npm run tauri build
 ## Lisans / License
 
 MIT
+
+---
+
+## Teşekkürler / Credits
+
+| Proje | Açıklama |
+|-------|----------|
+| [antigravity-claude-proxy](https://github.com/badrisnarayanan/antigravity-claude-proxy) | Proxy core by [@badrisnarayanan](https://github.com/badrisnarayanan) |
+| [@ruwiss](https://github.com/ruwiss) | Kiro IDE entegrasyonu fikri / Kiro IDE integration idea |

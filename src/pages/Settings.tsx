@@ -1076,13 +1076,24 @@ export function Settings() {
 
                 {/* Section 6: About */}
                 <Accordion icon={<Info size={18} />} title={t('about')}>
-                    <SettingRow label={t('version')} description="Antigravity Claude Proxy Desktop">
+                    <SettingRow label={t('version')} description="Antigravity Claude Proxy GUI">
                         <span className="text-sm font-mono text-accent-primary">v1.0.0</span>
                     </SettingRow>
 
-                    <SettingRow label={t('documentation')} description={t('documentationDesc')}>
+                    <SettingRow label={t('sourceCode')} description="GUI Source Code">
                         <a
-                            href="https://github.com/AutoMaker-Org/automaker"
+                            href="https://github.com/StRonKEA/Antigravity-Claude-Proxy-GUI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent-primary hover:text-accent-primary/80 flex items-center gap-1"
+                        >
+                            <Github size={14} />
+                        </a>
+                    </SettingRow>
+
+                    <SettingRow label="Proxy Core" description="badrisnarayanan/antigravity-claude-proxy">
+                        <a
+                            href="https://github.com/badrisnarayanan/antigravity-claude-proxy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-accent-primary hover:text-accent-primary/80 flex items-center gap-1"
@@ -1091,9 +1102,9 @@ export function Settings() {
                         </a>
                     </SettingRow>
 
-                    <SettingRow label={t('sourceCode')} description={t('sourceCodeDesc')}>
+                    <SettingRow label="Kiro Integration" description="@ruwiss">
                         <a
-                            href="https://github.com/AutoMaker-Org/automaker"
+                            href="https://github.com/ruwiss"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-accent-primary hover:text-accent-primary/80 flex items-center gap-1"
