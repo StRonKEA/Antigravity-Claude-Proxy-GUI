@@ -1,8 +1,8 @@
 [package]
-name = "desktop-app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "antigravity-claude-proxy"
+version = "1.0.0"
+description = "GUI for antigravity-claude-proxy npm package"
+authors = ["StRonKEA"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -34,5 +34,4 @@ tauri-plugin-autostart = "2"
 lto = true
 codegen-units = 1
 opt-level = "s"
-strip = true
 panic = "abort"

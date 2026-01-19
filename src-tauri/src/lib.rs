@@ -5,11 +5,6 @@ use tauri::{
     Manager, WindowEvent,
 };
 
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -26,14 +21,11 @@ pub fn run() {
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_fs::init())
         .setup(|app| {
-            // Create tray menu with separator
+            // Create tray menu
             let show_item = MenuItem::with_id(app, "show", "Show Window", true, None::<&str>)?;
-            let dashboard_item =
-                MenuItem::with_id(app, "dashboard", "Dashboard", true, None::<&str>)?;
             let separator = tauri::menu::PredefinedMenuItem::separator(app)?;
             let quit_item = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
-            let menu =
-                Menu::with_items(app, &[&show_item, &dashboard_item, &separator, &quit_item])?;
+            let menu = Menu::with_items(app, &[&show_item, &separator, &quit_item])?;
 
             // Create system tray icon
             let _tray = TrayIconBuilder::new()
@@ -77,7 +69,6 @@ pub fn run() {
                 api.prevent_close();
             }
         })
-        .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
