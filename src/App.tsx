@@ -19,8 +19,7 @@ const PageLoader = () => (
 );
 
 function App() {
-  const { currentPage, config, setConfig, setProxyStatus, setProxyStartTime } = useAppStore();
-  const [showSetupWizard, setShowSetupWizard] = useState(false);
+  const { currentPage, config, setConfig, setProxyStatus, setProxyStartTime, showSetupWizard, setShowSetupWizard } = useAppStore();
   const [isCheckingSetup, setIsCheckingSetup] = useState(true);
 
   // Check if setup wizard should be shown and auto-start proxy if enabled

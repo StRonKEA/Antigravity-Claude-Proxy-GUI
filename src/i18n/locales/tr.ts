@@ -524,5 +524,16 @@ export const tr = {
     kiroAutoStart: 'Kiro Sunucusunu Otomatik Başlat',
     kiroAutoStartDesc: 'Ana proxy ile birlikte Kiro sunucusu başlar ve gerekirse otomatik patch uygulanır',
     restartKiroRequired: 'Değişiklikleri uygulamak için Kiro IDE\'yi yeniden başlatın',
+
+    // Setup Wizard
+    rerunWizard: 'Kurulum Sihirbazı',
+    rerunWizardDesc: 'İlk kurulum sihirbazını yeniden çalıştır',
+    runWizard: 'Sihirbazı Çalıştır',
+
+    // Update Check
+    checkForUpdates: 'Güncellemeleri kontrol et',
+    checkingUpdates: 'Güncellemeler kontrol ediliyor...',
+    appUpdateAvailable: 'Güncelleme mevcut',
+    noUpdates: 'En güncel sürümü kullanıyorsunuz',
 } as const;
 

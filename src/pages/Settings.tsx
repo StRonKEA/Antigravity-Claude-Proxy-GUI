@@ -18,6 +18,7 @@ import {
 import { setAutoStart, getAutoStartStatus } from '../services/autostartService';
 import { loadSettings, saveSettings, updateSettings } from '../services/appStorageService';
 import { getKiroStatus, patchKiro, restoreKiro, startKiroServer, stopKiroServer, type KiroStatus } from '../services/kiroService';
+import { checkForUpdates, getCurrentVersion, type UpdateInfo } from '../services/updateService';
 import { Accordion } from '../components/ui/Accordion';
 import { SettingRow, ToggleSwitch } from '../components/ui/SettingRow';
 import type { Preset } from '../types';
@@ -1077,7 +1078,25 @@ export function Settings() {
                 {/* Section 6: About */}
                 <Accordion icon={<Info size={18} />} title={t('about')}>
                     <SettingRow label={t('version')} description="Antigravity Claude Proxy GUI">
-                        <span className="text-sm font-mono text-accent-primary">v1.0.0</span>
+                        <div className="flex items-center gap-3">
+                            <span className="text-sm font-mono text-accent-primary">v{getCurrentVersion()}</span>
+                            <button
+                                onClick={async () => {
+                                    toast.info(t('checkingUpdates'));
+                                    const info = await checkForUpdates();
+                                    if (info.updateAvailable) {
+                                        toast.success(`${t('appUpdateAvailable')}: v${info.latestVersion}`);
+                                        window.open(info.releaseUrl, '_blank');
+                                    } else {
+                                        toast.info(t('noUpdates'));
+                                    }
+                                }}
+                                className="btn-secondary text-xs flex items-center gap-1.5 py-1 px-2"
+                            >
+                                <RefreshCw size={12} />
+                                {t('checkForUpdates')}
+                            </button>
+                        </div>
                     </SettingRow>
 
                     <SettingRow label={t('sourceCode')} description="GUI Source Code">
@@ -1111,6 +1130,19 @@ export function Settings() {
                         >
                             <Github size={14} />
                         </a>
+                    </SettingRow>
+
+                    <SettingRow label={t('rerunWizard')} description={t('rerunWizardDesc')}>
+                        <button
+                            onClick={() => {
+                                const { setShowSetupWizard } = useAppStore.getState();
+                                setShowSetupWizard(true);
+                            }}
+                            className="btn-secondary text-sm flex items-center gap-2"
+                        >
+                            <RefreshCw size={14} />
+                            {t('runWizard')}
+                        </button>
                     </SettingRow>
                 </Accordion>
             </div>

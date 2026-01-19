@@ -526,5 +526,16 @@ export const en = {
     kiroAutoStart: 'Auto-start Kiro Server',
     kiroAutoStartDesc: 'Kiro server starts with main proxy and auto-patches if not already patched',
     restartKiroRequired: 'Restart Kiro IDE to apply changes',
+
+    // Setup Wizard
+    rerunWizard: 'Setup Wizard',
+    rerunWizardDesc: 'Re-run the initial setup wizard',
+    runWizard: 'Run Wizard',
+
+    // Update Check
+    checkForUpdates: 'Check for updates',
+    checkingUpdates: 'Checking for updates...',
+    appUpdateAvailable: 'Update available',
+    noUpdates: 'You have the latest version',
 } as const;
 

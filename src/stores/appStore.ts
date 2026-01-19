@@ -41,6 +41,10 @@ interface AppState {
     isSidebarCollapsed: boolean;
     toggleSidebar: () => void;
 
+    // Setup Wizard
+    showSetupWizard: boolean;
+    setShowSetupWizard: (show: boolean) => void;
+
     // Proxy Port (convenience method)
     setProxyPort: (port: number) => void;
 }
@@ -136,4 +140,8 @@ export const useAppStore = create<AppState>((set) => ({
     isSidebarCollapsed: false,
     toggleSidebar: () =>
         set((state) => ({ isSidebarCollapsed: !state.isSidebarCollapsed })),
+
+    // Setup Wizard
+    showSetupWizard: false,
+    setShowSetupWizard: (show) => set({ showSetupWizard: show }),
 }));
