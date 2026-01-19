@@ -1,8 +1,8 @@
 # Antigravity Claude Proxy GUI
 
-Claude ve Gemini API'lerini tek bir proxy üzerinden yöneten masaüstü uygulaması.
+[antigravity-claude-proxy](https://github.com/badrisnarayanan/antigravity-claude-proxy) npm paketi için masaüstü arayüzü. Bu uygulama sadece bir GUI'dir, arka planda proxy paketi çalışır.
 
-A desktop application that manages Claude and Gemini APIs through a single proxy.
+A desktop GUI for the [antigravity-claude-proxy](https://github.com/badrisnarayanan/antigravity-claude-proxy) npm package. This app is just a graphical interface - the proxy package runs in the background.
 
 ---
 
@@ -58,6 +58,21 @@ A desktop application that manages Claude and Gemini APIs through a single proxy
 
 ## Kurulum / Installation
 
+### Hazır İndirmeler / Pre-built Downloads
+
+[Releases](https://github.com/StRonKEA/Antigravity-Claude-Proxy-GUI/releases) sayfasından platformunuza uygun dosyayı indirin:
+
+Download from the [Releases](https://github.com/StRonKEA/Antigravity-Claude-Proxy-GUI/releases) page:
+
+| Platform | Dosya / File |
+|----------|--------------|
+| Windows | `.msi` veya `.exe` |
+| macOS (Intel) | `.dmg` (x64) |
+| macOS (Apple Silicon) | `.dmg` (arm64) |
+| Linux | `.deb`, `.rpm`, `.AppImage` |
+
+### Kaynak Koddan Derleme / Build from Source
+
 ```bash
 # Bağımlılıkları yükle / Install dependencies
 npm install
@@ -71,7 +86,7 @@ npm run tauri build
 
 ---
 
-## Gereksinimler / Requirements
+## Gereksinimler / Requirements (Sadece kaynak koddan derleme için)
 
 - Node.js 18+
 - Rust (Tauri için / for Tauri)
