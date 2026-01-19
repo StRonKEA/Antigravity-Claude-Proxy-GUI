@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "desktop-app",
-  "version": "0.1.0",
-  "identifier": "com.stronk.desktop-app",
+  "productName": "Antigravity Claude Proxy",
+  "version": "1.0.0",
+  "identifier": "com.stronk.antigravity-claude-proxy",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
