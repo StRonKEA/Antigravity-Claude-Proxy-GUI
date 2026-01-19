@@ -1,11 +1,3 @@
-# Antigravity Claude Proxy GUI
-
-[antigravity-claude-proxy](https://github.com/badrisnarayanan/antigravity-claude-proxy) npm paketi için masaüstü arayüzü. Bu uygulama sadece bir GUI'dir, arka planda proxy paketi çalışır.
-
-A desktop GUI for the [antigravity-claude-proxy](https://github.com/badrisnarayanan/antigravity-claude-proxy) npm package. This app is just a graphical interface - the proxy package runs in the background.
-
----
-
 ## Özellikler / Features
 
 - **Çoklu Hesap Yönetimi / Multi-Account Management**  
